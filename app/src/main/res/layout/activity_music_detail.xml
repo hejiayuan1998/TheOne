@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.smashing.theone.common.widget.LoadingLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/loading_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.smashing.theone.common.widget.TitleBar
+            android:id="@+id/tiitle_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:leftIcon="@drawable/back"
+            app:rightIcon="@drawable/bubble_share"
+            app:rightIconSize="@dimen/dp_60" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/layout_bottom"
+            android:layout_below="@+id/tiitle_bar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/civ_cover"
+                        android:layout_width="400dp"
+                        android:layout_height="400dp"
+                        android:layout_marginLeft="-150dp"
+                        android:layout_marginTop="-150dp"
+                        android:src="@drawable/default_indi_bg" />
+
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    style="@style/txt_10_aaaaaa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:text="· 她来听我的演唱会 ·" />
+
+                <TextView
+                    android:id="@+id/tv_album"
+                    style="@style/txt_10_aaaaaa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="张学友 | 友情歌" />
+
+                <TextView
+                    android:id="@+id/tv_story_name"
+                    style="@style/txt_20_333333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:lineSpacingMultiplier="1.5"
+                    android:text="祝你爱的歌手永远不火，小众一生祝你爱的歌手永远不火，小众一生" />
+
+
+                <TextView
+                    android:id="@+id/tv_story_author"
+                    style="@style/txt_14_333333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_24"
+                    android:text="文 / 王悦" />
+
+                <WebView
+                    android:id="@+id/web_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_30" />
+
+
+                <include layout="@layout/common_editor_layout" />
+
+                <include layout="@layout/common_author_layout" />
+
+                <include layout="@layout/common_comment_layout" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:layout_height="50dp"/>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+        <include
+            android:id="@+id/layout_bottom"
+            layout="@layout/bottom_detail" />
+
+    </RelativeLayout>
+
+
+</com.smashing.theone.common.widget.LoadingLayout>

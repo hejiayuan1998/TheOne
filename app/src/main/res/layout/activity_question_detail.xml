@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.smashing.theone.common.widget.LoadingLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/loading_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <com.smashing.theone.common.widget.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:leftIcon="@drawable/back"
+            app:rightIcon="@drawable/bubble_share"
+            app:title="一个阅读" />
+
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_layout"
+            android:layout_below="@+id/title_bar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dp_20">
+
+                <TextView
+                    android:id="@+id/tv_question"
+                    style="@style/txt_20_333333"
+                    android:textSize="@dimen/dp_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:text="胡适教你吃花酒" />
+
+
+                <TextView
+                    android:id="@+id/tv_question_content"
+                    style="@style/txt_14_787878"
+                    android:layout_width="wrap_content"
+                    android:lineSpacingMultiplier="2"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_26"
+                    android:text="4月1日是愚人节，但我一把年纪了，也没有什么喜欢的女孩子想捉弄捉弄的，好像这一天就没什么特别的了，除了骗人还能做点什么？" />
+
+                <TextView
+                    android:id="@+id/tv_question_name"
+                    style="@style/txt_16_333333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:text="———— 陈森问到" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_30"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="#dedede" />
+
+                    <ImageView
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:background="@drawable/point_gray" />
+
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="#dedede" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tv_answer_name"
+                    style="@style/txt_20_333333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:text="突然累了答：" />
+
+
+                <WebView
+                    android:id="@+id/wb_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_20" />
+
+
+                <include layout="@layout/common_editor_layout" />
+
+
+                <!--<include layout="@layout/common_comment_layout" />-->
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <include
+            android:id="@+id/bottom_layout"
+            layout="@layout/bottom_detail" />
+
+    </RelativeLayout>
+</com.smashing.theone.common.widget.LoadingLayout>

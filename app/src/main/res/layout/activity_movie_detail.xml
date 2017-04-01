@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.smashing.theone.common.widget.LoadingLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/loading_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <com.smashing.theone.common.widget.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:leftIcon="@drawable/back"
+            app:rightIcon="@drawable/bubble_share"
+            app:title="一个阅读" />
+
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_layout"
+            android:layout_below="@+id/title_bar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/view_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:id="@+id/tv_page_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/dp_16"
+                        android:layout_marginBottom="@dimen/dp_10"
+                        android:text="1/3"
+                        android:textColor="@color/white"
+                        android:textSize="12dp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_movie_name"
+                    style="@style/txt_12_787878"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="· 僵尸先生 ·" />
+
+                <TextView
+                    android:id="@+id/tv_article_title"
+                    style="@style/txt_20_333333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="这部僵尸片里有你童年记忆和童年阴影" />
+
+                <View
+                    android:layout_width="80dp"
+                    android:layout_height="@dimen/dp_3"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:background="#333" />
+
+                <TextView
+                    android:id="@+id/tv_author"
+                    style="@style/txt_14_333333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_26"
+                    android:text="文 / 李舒" />
+
+
+                <WebView
+                    android:id="@+id/wb_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_20" />
+
+
+                <include layout="@layout/common_editor_layout" />
+
+
+                <include
+                    android:id="@+id/ll_comment"
+                    layout="@layout/common_comment_layout" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <include
+            android:id="@+id/bottom_layout"
+            layout="@layout/bottom_detail" />
+
+    </RelativeLayout>
+</com.smashing.theone.common.widget.LoadingLayout>

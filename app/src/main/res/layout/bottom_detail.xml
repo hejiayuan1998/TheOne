@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="46dp"
+    android:layout_alignParentBottom="true"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#dedede" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_start"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:src="@drawable/bubble_collect" />
+
+        <ImageView
+            android:id="@+id/iv_like"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:src="@drawable/bottom_laud_default" />
+
+        <ImageView
+            android:id="@+id/iv_comment"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/bottom_comment" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/tv_like_and_comment"
+        style="@style/txt_12_aaaaaa"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1080 喜欢 · 170 评论" />
+
+
+</RelativeLayout>

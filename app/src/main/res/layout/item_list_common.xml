@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_category"
+                style="@style/txt_12_aaaaaa"
+                android:textColor="@color/tv_main_nav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="- 阅读 -" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/txt_20_333333"
+                android:layout_width="wrap_content"
+                android:lineSpacingMultiplier="1.2"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_marginRight="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="把你的的影子加点盐，腌起来，风干，老的时候下酒" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                style="@style/txt_16_333333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="文 / 夏宇" />
+
+
+            <ImageView
+                android:id="@+id/iv_pic"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_10"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/default_reading_pic" />
+
+
+            <TextView
+                android:id="@+id/tv_forward"
+                style="@style/txt_14_787878"
+                android:layout_width="wrap_content"
+                android:lineSpacingMultiplier="1.5"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_28"
+                android:layout_marginRight="@dimen/dp_28"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="你仰起脸彷佛我就在你的鼻尖发光。" />
+
+
+            <include layout="@layout/bottom_common"/>
+        </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#eeeeee"
+        android:layout_height="0.5dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_14"
+        android:background="@color/custom_bg" />
+</LinearLayout>
