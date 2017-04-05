@@ -1,10 +1,9 @@
 package com.smashing.theone.business.movie.view;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -18,6 +17,8 @@ import android.widget.Toast;
 import com.smashing.theone.R;
 import com.smashing.theone.adapter.CommentAdapter;
 import com.smashing.theone.bean.Comment;
+import com.smashing.theone.business.common.PicActivity;
+import com.smashing.theone.business.common.VideoActivity;
 import com.smashing.theone.business.movie.adapter.MoviePicAdapter;
 import com.smashing.theone.business.movie.contract.MovieDetailContract;
 import com.smashing.theone.business.movie.model.MovieDetailBean;
@@ -32,12 +33,7 @@ import com.smashing.theone.common.widget.TitleBar;
 import java.util.ArrayList;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static android.R.attr.author;
-import static android.R.attr.data;
-import static android.os.Build.VERSION_CODES.M;
 
 /**
  * author: chensen
@@ -119,8 +115,8 @@ public class MovieDetailActivity extends BaseActivity<MovieDetailPresenterImpl> 
     }
 
     @Override
-    public void showPic(MoviePicBean.PicData data) {
-        tvMovieName.setText("· 《" +data.getTitle() + "》 ·");
+    public void showPic(final MoviePicBean.PicData data) {
+        tvMovieName.setText("· 《" + data.getTitle() + "》 ·");
 
         //视频不为空或者是图片不为空
         if ((data.getVideo() != null && !data.getVideo().equals("")) || (data.getPhoto() != null && data.getPhoto().size() > 0)) {
@@ -152,7 +148,9 @@ public class MovieDetailActivity extends BaseActivity<MovieDetailPresenterImpl> 
                 play.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        Intent intent = new Intent(mContext, VideoActivity.class);
+                        intent.putExtra("url", data.getVideo());
+                        startActivity(intent);
                     }
                 });
 
@@ -168,6 +166,16 @@ public class MovieDetailActivity extends BaseActivity<MovieDetailPresenterImpl> 
 
                 ImageLoader.showImage(mContext, data.getPhoto().get(i), imageView);
                 views.add(imageView);
+
+                final String url = data.getPhoto().get(i);
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, PicActivity.class);
+                        intent.putExtra("url", url);
+                        startActivity(intent);
+                    }
+                });
             }
 
             moviePicAdapter = new MoviePicAdapter(views);
@@ -199,7 +207,7 @@ public class MovieDetailActivity extends BaseActivity<MovieDetailPresenterImpl> 
     @Override
     public void showContent(MovieDetailBean.DataBean.Data data) {
 
-        tvArticleTitle.setText( data.getTitle());
+        tvArticleTitle.setText(data.getTitle());
         wbContent.loadData(data.getContent(), "text/html;charset=UTF-8", null);
 
         tvEditor.setText(data.getCharge_edt());

@@ -17,6 +17,7 @@ import com.smashing.theone.R;
 import com.smashing.theone.bean.Content;
 import com.smashing.theone.business.home.model.OneListBean;
 import com.smashing.theone.business.main.MainActivity;
+import com.smashing.theone.business.main.PicActivity;
 import com.smashing.theone.business.movie.view.MovieDetailActivity;
 import com.smashing.theone.business.music.view.MusicDetailActivity;
 import com.smashing.theone.business.read.view.QuestionDetilActivity;
@@ -31,6 +32,7 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 /**
  * author: chensen
@@ -102,7 +104,7 @@ public class OneListAdapter extends BaseAdapter<Content> {
 
     }
 
-    private void setPhotoData(PhotoVeiwHolder photoVeiwHolder, final int position, Content content) {
+    private void setPhotoData(PhotoVeiwHolder photoVeiwHolder, final int position, final Content content) {
 
         ImageLoader.showImage(mContext, content.getImg_url(), photoVeiwHolder.ivPic);
         photoVeiwHolder.tvTitle.setText("- " + content.getTitle() + " -");
@@ -128,7 +130,9 @@ public class OneListAdapter extends BaseAdapter<Content> {
         photoVeiwHolder.ivPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "图片 " + mDataList.get(position).getItem_id(), 0).show();
+                Intent intent = new Intent(mContext, PicActivity.class);
+                intent.putExtra("url", content.getImg_url());
+                mContext.startActivity(intent);
             }
         });
     }
@@ -162,7 +166,7 @@ public class OneListAdapter extends BaseAdapter<Content> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, MusicDetailActivity.class);
-                intent.putExtra("itemId",content.getItem_id());
+                intent.putExtra("itemId", content.getItem_id());
                 mContext.startActivity(intent);
             }
         });
@@ -215,7 +219,7 @@ public class OneListAdapter extends BaseAdapter<Content> {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext, QuestionDetilActivity.class);
-                    intent.putExtra("itemId",content.getItem_id());
+                    intent.putExtra("itemId", content.getItem_id());
                     mContext.startActivity(intent);
                 }
             });
@@ -224,7 +228,7 @@ public class OneListAdapter extends BaseAdapter<Content> {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext, MovieDetailActivity.class);
-                    intent.putExtra("itemId",content.getItem_id());
+                    intent.putExtra("itemId", content.getItem_id());
                     mContext.startActivity(intent);
                 }
             });
@@ -233,7 +237,7 @@ public class OneListAdapter extends BaseAdapter<Content> {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext, ReadDetailActivity.class);
-                    intent.putExtra("itemId",content.getItem_id());
+                    intent.putExtra("itemId", content.getItem_id());
                     mContext.startActivity(intent);
                 }
             });

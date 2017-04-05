@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
@@ -141,21 +142,23 @@ public class OneListFragment extends BaseFragment<OneListPresenterImpl> implemen
         dataAdapter.setDataList(listData);
         UIUtils.refresh(rvOneList, lRecyclerViewAdapter);
 
-        //如果不是最后一页，就添加bottom
-        final HomeFragment homeFragment = (HomeFragment) ((MainActivity) getActivity()).getSupportFragmentManager().findFragmentByTag("0");
-        int currentPage = homeFragment.getCurrentPage();
 
-        if (currentPage < homeFragment.idList.size()) {
-            lRecyclerViewAdapter.addFooterView(footer);
-            lRecyclerViewAdapter.getFooterView().setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        lRecyclerViewAdapter.addFooterView(footer);
+        lRecyclerViewAdapter.getFooterView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                //如果不是最后一页，就往后跳转一页
+                HomeFragment homeFragment = (HomeFragment) ((MainActivity) getActivity()).getSupportFragmentManager().findFragmentByTag("0");
+                int currentPage = homeFragment.getCurrentPage();
+                if (currentPage < homeFragment.idList.size() - 1) {
                     homeFragment.viewPager.setCurrentItem(homeFragment.getCurrentPage() + 1);
-
+                } else {
+                    Toast.makeText(mContext, "没有更早的内容了",0).show();
                 }
-            });
-        }
+
+            }
+        });
 
     }
 

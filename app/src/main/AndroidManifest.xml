@@ -22,6 +22,9 @@
         <activity android:name="com.smashing.theone.business.read.view.QuestionDetilActivity"/>
         <activity android:name="com.smashing.theone.business.music.view.MusicDetailActivity"/>
         <activity android:name="com.smashing.theone.business.movie.view.MovieDetailActivity"/>
+        <activity android:name="com.smashing.theone.business.common.HtmlActivity"/>
+        <activity android:name="com.smashing.theone.business.common.PicActivity"/>
+        <activity android:name="com.smashing.theone.business.common.VideoActivity"/>
 
     </application>
 

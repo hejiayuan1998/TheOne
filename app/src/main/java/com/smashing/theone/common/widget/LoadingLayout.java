@@ -62,9 +62,9 @@ public class LoadingLayout extends FrameLayout {
     private static String errorStr = "加载失败，请稍后重试···";
     private static String netwrokStr = "无网络连接，请检查网络···";
     private static String reloadBtnStr = "点击重试";
-    private static int emptyImgId = R.mipmap.empty;
-    private static int errorImgId = R.mipmap.error;
-    private static int networkImgId = R.mipmap.no_network;
+    private static int emptyImgId = R.drawable.empty;
+    private static int errorImgId = R.drawable.error;
+    private static int networkImgId = R.drawable.no_network;
     private static int reloadBtnId = R.drawable.selector_btn_back_gray;
     private static int tipTextSize = 14;
     private static int buttonTextSize = 14;
@@ -72,14 +72,14 @@ public class LoadingLayout extends FrameLayout {
     private static int buttonTextColor = R.color.base_text_color_light;
     private static int buttonWidth = -1;
     private static int buttonHeight = -1;
-    private static int loadingLayoutId = R.layout.widget_loading_page;
+    private static int loadingLayoutId = R.layout.page_loading;
     private static int backgroundColor = R.color.base_loading_background;
 
     public LoadingLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.mContext = context;
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.LoadingLayout);
-        isFirstVisible = a.getBoolean(R.styleable.LoadingLayout_isFirstVisible, true);
+        isFirstVisible = a.getBoolean(R.styleable.LoadingLayout_isFirstVisiable, true);
         a.recycle();
     }
 
@@ -109,9 +109,9 @@ public class LoadingLayout extends FrameLayout {
     private void build() {
 
         loadingPage = LayoutInflater.from(mContext).inflate(loadingLayoutId, null);
-        errorPage = LayoutInflater.from(mContext).inflate(R.layout.widget_error_page, null);
-        emptyPage = LayoutInflater.from(mContext).inflate(R.layout.widget_empty_page, null);
-        networkPage = LayoutInflater.from(mContext).inflate(R.layout.widget_nonetwork_page, null);
+        errorPage = LayoutInflater.from(mContext).inflate(R.layout.page_error, null);
+        emptyPage = LayoutInflater.from(mContext).inflate(R.layout.page_empty, null);
+        networkPage = LayoutInflater.from(mContext).inflate(R.layout.page_nonetwork, null);
         defineLoadingPage = null;
 
         loadingPage.setBackgroundColor(getResources().getColor(backgroundColor));
