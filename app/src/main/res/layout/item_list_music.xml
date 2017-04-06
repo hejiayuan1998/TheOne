@@ -54,19 +54,13 @@
                 android:layout_centerVertical="true"
                 android:src="@drawable/feeds_music" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_pic"
+
+            <com.smashing.theone.common.widget.CDLayout
+                android:id="@+id/cd_layout"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_centerInParent="true" />
 
-
-            <ImageView
-                android:id="@+id/iv_play"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/play" />
 
             <ImageView
                 android:layout_width="@dimen/dp_26"
@@ -74,7 +68,7 @@
                 android:layout_alignBottom="@+id/iv_music_decotate"
                 android:layout_marginBottom="@dimen/dp_20"
                 android:layout_marginRight="@dimen/dp_20"
-                android:layout_toLeftOf="@+id/iv_pic"
+                android:layout_toLeftOf="@+id/cd_layout"
                 android:src="@drawable/xiami_right" />
 
 

@@ -37,12 +37,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 如果是退出应用flag,则直接关闭当前页面,不加载UI
-        boolean exit = getIntent().getBooleanExtra("exit", false);
-        if (exit) {
-            finish();
-            return;
-        }
+
         TAG = getClass().getSimpleName();
         doBeforeSetContentView();
         setContentView(getLayoutId());
@@ -189,12 +184,13 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
      * 退出程序
      */
     private void exit() {
-        // 退出程序方法有多种
-        // 这里使用clear + new task的方式清空整个任务栈,只保留新打开的Main页面
-        // 然后Main页面接收到退出的标志位exit=true,finish自己,这样就关闭了全部页面
+        // 退出程序方法有多种 这里使用SingleTask式
+        //1、设置MainActivity的加载模式为singleTask
+        //2、重写MainActivity中的onNewIntent方法
+        //3、需要退出时在Intent中添加退出的tag
+
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("exit", true);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
 
     }

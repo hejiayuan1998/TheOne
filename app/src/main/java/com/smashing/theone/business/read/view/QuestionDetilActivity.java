@@ -68,7 +68,7 @@ public class QuestionDetilActivity extends BaseActivity<QuestionPresenterImpl> i
 
     @Override
     protected void initView() {
-        titleBar.setTitle("阅读 · 问答");
+        titleBar.setTitle(getString(R.string.the_one_question));
         titleBar.setOnLeftIconClickListener(new TitleBar.onLeftIconClickListener() {
             @Override
             public void onLeftIconClick(View v) {

@@ -73,7 +73,7 @@ public class ReadFragment extends BaseFragment<ReadPresenterImpl> implements Rea
         });
 
         titleBar.showRightIcon(true);
-        titleBar .setTitle("一个阅读");
+        titleBar .setTitle(getResources().getString(R.string.the_one_read));
 
         rvReadList.setRefreshHeader(new ReadingRefreshHeader(mContext));
 

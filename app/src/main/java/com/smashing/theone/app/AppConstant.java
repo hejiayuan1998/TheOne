@@ -8,8 +8,5 @@ package com.smashing.theone.app;
 
 public class AppConstant {
 
-    public static final int TYPE_HOME = 0;
-    public static final int TYPE_READ = 1;
-    public static final int TYPE_MUSIC = 2;
-    public static final int TYPE_MOVIE = 3;
+
 }

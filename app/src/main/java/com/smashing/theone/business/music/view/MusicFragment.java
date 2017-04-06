@@ -64,7 +64,7 @@ public class MusicFragment extends BaseFragment<MusicPresenterImpl> implements M
         });
 
         titleBar.showRightIcon(true);
-        titleBar.setTitle("一个音乐");
+        titleBar.setTitle(getResources().getString(R.string.the_one_music));
 
         rvReadList.setRefreshHeader(new ReadingRefreshHeader(mContext));
 
@@ -73,16 +73,6 @@ public class MusicFragment extends BaseFragment<MusicPresenterImpl> implements M
         rvReadList.setAdapter(lRecyclerViewAdapter);
 
         rvReadList.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
-
-        lRecyclerViewAdapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                String itemId = mPresenter.getItemId(position);
-                Intent intent = new Intent(getActivity(), MusicDetailActivity.class);
-                intent.putExtra("itemId", itemId);
-                startActivity(intent);
-            }
-        });
 
 
         rvReadList.setLoadMoreEnabled(false);

@@ -107,7 +107,7 @@ public class ReadDetailActivity extends BaseActivity<ReadDetailPresenterImpl> im
         if (data.getTag_list() != null && data.getTag_list().size() > 0) {
             titleBar.setTitle(data.getTag_list().get(0).getTitle());
         } else {
-            titleBar.setTitle("一个阅读");
+            titleBar.setTitle(getResources().getString(R.string.the_one_read));
         }
 
         tvArticleName.setText(data.getHp_title());

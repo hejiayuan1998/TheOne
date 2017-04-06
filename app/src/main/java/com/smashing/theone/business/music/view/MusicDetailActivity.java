@@ -20,6 +20,7 @@ import com.smashing.theone.business.music.presenter.MusicDetailPresenterImpl;
 import com.smashing.theone.common.base.BaseActivity;
 import com.smashing.theone.common.utils.Htmlutils;
 import com.smashing.theone.common.utils.ImageLoader;
+import com.smashing.theone.common.widget.CDLayout;
 import com.smashing.theone.common.widget.LoadingLayout;
 import com.smashing.theone.common.widget.TitleBar;
 
@@ -75,7 +76,7 @@ public class MusicDetailActivity extends BaseActivity<MusicDetailPresenterImpl> 
     @Bind(R.id.tv_like_and_comment)
     TextView tvLikeAndComment;
     @Bind(R.id.civ_cover)
-    CircleImageView civCover;
+    CDLayout civCover;
 
     CommentAdapter commentAdapter;
 
@@ -86,7 +87,7 @@ public class MusicDetailActivity extends BaseActivity<MusicDetailPresenterImpl> 
 
     @Override
     protected void initView() {
-        tiitleBar.setTitle("一个音乐");
+        tiitleBar.setTitle(getResources().getString(R.string.the_one_music));
         tiitleBar.setOnLeftIconClickListener(new TitleBar.onLeftIconClickListener() {
             @Override
             public void onLeftIconClick(View v) {
@@ -106,11 +107,25 @@ public class MusicDetailActivity extends BaseActivity<MusicDetailPresenterImpl> 
         mPresenter.getContent(itemId);
         mPresenter.getComment(itemId);
 
+
+        civCover.setOnPlayListener(new CDLayout.onPlayListener() {
+            @Override
+            public void onPlay() {
+
+            }
+        });
+        civCover.setStopListener(new CDLayout.onStopListener() {
+            @Override
+            public void onStop() {
+
+            }
+        });
+
     }
 
     @Override
     public void showContent(MusicDetailBean.MusicDetailData data) {
-        ImageLoader.showImage(mContext, data.getCover(), civCover, R.drawable.default_indi_bg);
+        ImageLoader.showCircleImage(mContext, data.getCover(), civCover.getIvPic());
 
         tvName.setText(data.getTitle());
         tvAlbum.setText(data.getAuthor().getUser_name() + " | " + data.getAlbum());

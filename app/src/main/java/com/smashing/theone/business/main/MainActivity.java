@@ -1,5 +1,6 @@
 package com.smashing.theone.business.main;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.widget.FrameLayout;
 
@@ -30,7 +31,6 @@ public class MainActivity extends BaseActivity {
     ArrayList<Fragment> listFragment;
 
 
-
     @Override
     public int getLayoutId() {
         return R.layout.activity_main;
@@ -39,6 +39,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
 
+        setDoubleBackExit(true);//双击退出
 
         listFragment = new ArrayList<>();
         listFragment.add(new HomeFragment());
@@ -87,9 +88,22 @@ public class MainActivity extends BaseActivity {
 
     }
 
+
     @Override
     protected BasePresenter initPresenter() {
         return null;
     }
 
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        if (intent != null) {
+            if (intent.getBooleanExtra("exit", false)) {
+                finish();
+            }
+        }
+
+    }
 }

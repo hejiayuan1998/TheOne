@@ -5,4 +5,13 @@
     <string name="nav_reading">阅读</string>
     <string name="nav_music">音乐</string>
     <string name="nav_movie">影视</string>
+
+
+    <string name="the_one">一个</string>
+    <string name="the_one_read">一个阅读</string>
+    <string name="the_one_music">一个音乐</string>
+    <string name="the_one_movie">一个影视</string>
+    <string name="the_one_question">阅读 · 问答</string>
+
+
 </resources>

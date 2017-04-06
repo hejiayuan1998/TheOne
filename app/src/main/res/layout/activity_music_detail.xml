@@ -2,12 +2,13 @@
 <com.smashing.theone.common.widget.LoadingLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/loading_layout"
+    app:isFirstVisiable="false"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -38,7 +39,7 @@
                     android:layout_height="wrap_content">
 
 
-                    <de.hdodenhof.circleimageview.CircleImageView
+                    <com.smashing.theone.common.widget.CDLayout
                         android:id="@+id/civ_cover"
                         android:layout_width="400dp"
                         android:layout_height="400dp"
@@ -73,10 +74,10 @@
                     style="@style/txt_20_333333"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:layout_marginLeft="@dimen/dp_20"
                     android:layout_marginRight="@dimen/dp_20"
                     android:layout_marginTop="@dimen/dp_30"
+                    android:gravity="center"
                     android:lineSpacingMultiplier="1.5"
                     android:text="祝你爱的歌手永远不火，小众一生祝你爱的歌手永远不火，小众一生" />
 
@@ -92,12 +93,12 @@
 
                 <WebView
                     android:id="@+id/web_content"
-                    android:scrollbars="none"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginRight="@dimen/dp_16"
-                    android:layout_marginTop="@dimen/dp_30" />
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:scrollbars="none" />
 
 
                 <include layout="@layout/common_editor_layout" />
@@ -108,8 +109,8 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:background="@color/white"
-                    android:layout_height="50dp"/>
+                    android:layout_height="50dp"
+                    android:background="@color/white" />
 
             </LinearLayout>
 

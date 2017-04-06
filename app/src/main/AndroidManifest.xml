@@ -2,29 +2,33 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.smashing.theone">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
+        android:name=".app.TheOne"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/one_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".app.TheOne"
         android:theme="@style/AppTheme">
-        <activity android:name=".business.main.MainActivity">
+        <activity android:name=".business.main.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.smashing.theone.business.read.view.ReadDetailActivity"/>
-        <activity android:name="com.smashing.theone.business.read.view.QuestionDetilActivity"/>
-        <activity android:name="com.smashing.theone.business.music.view.MusicDetailActivity"/>
-        <activity android:name="com.smashing.theone.business.movie.view.MovieDetailActivity"/>
-        <activity android:name="com.smashing.theone.business.common.HtmlActivity"/>
-        <activity android:name="com.smashing.theone.business.common.PicActivity"/>
-        <activity android:name="com.smashing.theone.business.common.VideoActivity"/>
+        <activity android:name="com.smashing.theone.business.read.view.ReadDetailActivity" />
+        <activity android:name="com.smashing.theone.business.read.view.QuestionDetilActivity" />
+        <activity android:name="com.smashing.theone.business.music.view.MusicDetailActivity" />
+        <activity android:name="com.smashing.theone.business.movie.view.MovieDetailActivity" />
+        <activity android:name="com.smashing.theone.business.common.HtmlActivity" />
+        <activity android:name="com.smashing.theone.business.common.PicActivity" />
+        <activity android:name="com.smashing.theone.business.common.VideoActivity" />
+        <activity
+            android:name="com.smashing.theone.business.main.MainActivity"
+            android:launchMode="singleTask" />
+
 
     </application>
 

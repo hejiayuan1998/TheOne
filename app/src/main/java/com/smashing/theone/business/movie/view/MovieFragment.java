@@ -62,7 +62,7 @@ public class MovieFragment extends BaseFragment<MoviePresenterImpl> implements M
             }
         });
         titleBar.showRightIcon(true);
-        titleBar.setTitle("一个影视");
+        titleBar.setTitle(getResources().getString(R.string.the_one_movie));
 
         rvMovieList.setRefreshHeader(new ReadingRefreshHeader(mContext));
         dataAdapter = new OneListAdapter(mContext);

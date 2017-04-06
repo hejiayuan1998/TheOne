@@ -88,7 +88,7 @@ public class MovieDetailActivity extends BaseActivity<MovieDetailPresenterImpl> 
 
     @Override
     protected void initView() {
-        titleBar.setTitle("一个影视");
+        titleBar.setTitle(getResources().getString(R.string.the_one_movie));
         titleBar.setOnLeftIconClickListener(new TitleBar.onLeftIconClickListener() {
             @Override
             public void onLeftIconClick(View v) {
