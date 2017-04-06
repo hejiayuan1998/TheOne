@@ -14,25 +14,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.smashing.theone.R;
+import com.smashing.theone.app.AppConstant;
 import com.smashing.theone.bean.Content;
-import com.smashing.theone.business.home.model.OneListBean;
-import com.smashing.theone.business.main.MainActivity;
-import com.smashing.theone.business.main.PicActivity;
+import com.smashing.theone.business.common.PicActivity;
 import com.smashing.theone.business.movie.view.MovieDetailActivity;
 import com.smashing.theone.business.music.view.MusicDetailActivity;
 import com.smashing.theone.business.read.view.QuestionDetilActivity;
 import com.smashing.theone.business.read.view.ReadDetailActivity;
 import com.smashing.theone.common.base.BaseAdapter;
 import com.smashing.theone.common.utils.ImageLoader;
+import com.smashing.theone.common.widget.CDLayout;
+import com.smashing.theone.common.widget.CDView;
 
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
+import retrofit.http.POST;
 
 /**
  * author: chensen
@@ -54,6 +53,8 @@ import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
  */
 
 public class OneListAdapter extends BaseAdapter<Content> {
+
+    private int playPosition = -1;//记录正在播放的位置，否则的话会因为item的复用问题导致状态的混乱。目前没有找到更好的解决办法
 
 
     public OneListAdapter(Context mContext) {
@@ -137,13 +138,14 @@ public class OneListAdapter extends BaseAdapter<Content> {
         });
     }
 
-    private void setMusicData(MusicViewHolder musicViewHolder, final int position, final Content content) {
+    private void setMusicData(final MusicViewHolder musicViewHolder, final int position, final Content content) {
 
         //4
         musicViewHolder.tvCategory.setText("- 音乐 -");
         musicViewHolder.tvTitle.setText(content.getTitle());
         musicViewHolder.tvUserName.setText("文 / " + content.getAuthor().getUser_name());
-        ImageLoader.showImage(mContext, content.getImg_url(), musicViewHolder.ivPic);
+        ImageLoader.showCircleImage(mContext, content.getImg_url(), musicViewHolder.cdLayout.getIvPic());
+
         musicViewHolder.tvDesc.setText(content.getSubtitle() + " · " + content.getAudio_author() + " | " + content.getAudio_album());
         musicViewHolder.tvForward.setText(content.getForward());
         musicViewHolder.tvLastUpdateTime.setText(content.getLast_update_date());
@@ -171,6 +173,29 @@ public class OneListAdapter extends BaseAdapter<Content> {
             }
         });
 
+        if (playPosition != position) {
+            musicViewHolder.cdLayout.reSet();
+        } else {
+            Log.d("tag", "继续播放");
+            musicViewHolder.cdLayout.continuePlay();
+        }
+
+
+        musicViewHolder.cdLayout.setOnPlayListener(new CDLayout.onPlayListener() {
+            @Override
+            public void onPlay() {
+                playPosition = position;
+
+
+            }
+        });
+        musicViewHolder.cdLayout.setStopListener(new CDLayout.onStopListener() {
+
+            @Override
+            public void onStop() {
+                playPosition = -1;
+            }
+        });
 
     }
 
@@ -289,10 +314,8 @@ public class OneListAdapter extends BaseAdapter<Content> {
         TextView tvTitle;
         @Bind(R.id.tv_user_name)
         TextView tvUserName;
-        @Bind(R.id.iv_pic)
-        CircleImageView ivPic;
-        @Bind(R.id.iv_play)
-        ImageView ivPlay;
+        @Bind(R.id.cd_layout)
+        CDLayout cdLayout;
         @Bind(R.id.tv_desc)
         TextView tvDesc;
         @Bind(R.id.tv_forward)
