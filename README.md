@@ -5,11 +5,15 @@
 简书传送门:   [http://www.jianshu.com/p/15dc7a464613#](http://www.jianshu.com/p/15dc7a464613#)
 
 
+
+
 ##  项目运行效果
 
 ![gif1](https://github.com/smashinggit/TheOne/blob/master/gif/gif1.gif)
 
 ![gif2](https://github.com/smashinggit/TheOne/blob/master/gif/gif2.gif)
+
+
 
 ## 分包
 ![分包](https://github.com/smashinggit/TheOne/blob/master/gif/分包.png)
@@ -21,6 +25,7 @@
     部分则是为了实现UI界面和业务逻辑解耦的桥梁   
     
     来自 [MVP在Android项目中的简单体现](http://blog.csdn.net/jiujiedexiaoming/article/details/54927617)
+    
     
     
 ## 项目中使用到的库
@@ -53,6 +58,8 @@
    GitHub地址: [https://github.com/githubwing/MVPHelper](https://github.com/githubwing/MVPHelper)
    
    
+   
+   
 ## 感谢
 
   感谢提供Api的哥们
@@ -60,6 +67,8 @@
   Api地址 ：[https://github.com/jokermonn/-Api/blob/master/ONEv3.5.0~.md](https://github.com/jokermonn/-Api/blob/master/ONEv3.5.0~.md)
   
   
+  
+  
 ## 说点废话
 
    1.项目还会持续更新
