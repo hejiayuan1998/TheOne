@@ -14,7 +14,7 @@
 ## 分包
 ![分包](https://github.com/smashinggit/TheOne/blob/master/gif/分包.png)
 
-如何分包？
+### 如何分包？
 
     经过查阅网上一些MVP的文章之后，有部分案例在presenter中实现具体的逻辑或者把Model单纯的看作是具体的Bean，
     个人觉得是不太准确的，MVX（MVC、MVP和MVVM）中，M的职责都应该包含两部分业务逻辑和提供View显示的数据，而X的
